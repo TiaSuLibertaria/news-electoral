@@ -20,10 +20,16 @@ export const fetchNews = async (page: number): Promise<News[]> => {
       q: 'eleições',
       from: '2022-08-19',
       sortBy: 'popularity',
-      apikey: '17d025d32f3c4d7c86f79a1206ac7413'
-    }
+      apikey: '17d025d32f3c4d7c86f79a1206ac7413',
+      pageSize: PER_PAGE,
+      page,
+    },
   })
 
-  const news: News[] = resultNews.data.map((obj: any) => getNews(obj, `${new Date().getTime()}`))
+  const { articles } = resultNews.data
+
+  const news: News[] = articles.map((obj: any, index: number) =>
+    getNews(obj, `${new Date().getTime()}_${index}`)
+  )
   return news
 }

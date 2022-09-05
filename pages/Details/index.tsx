@@ -1,17 +1,20 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { LogBox } from 'react-native'
 import { RootSackParam } from '../../navigation'
 import { Container, DetailPanel, PanelRow, RowKey, RowValue } from './styles'
 
 type Props = NativeStackScreenProps<RootSackParam, 'Detail'>
 
 const Details = ({ route }: Props) => {
+  LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ])
+
   const { news } = route.params
 
   return (
     <Container>
-
       <DetailPanel>
-
         <PanelRow>
           <RowKey>Título:</RowKey>
           <RowValue>{news.title}</RowValue>
@@ -36,9 +39,7 @@ const Details = ({ route }: Props) => {
           <RowKey>Link:</RowKey>
           <RowValue>{news.link}</RowValue>
         </PanelRow>
-
       </DetailPanel>
-
     </Container>
   )
 }

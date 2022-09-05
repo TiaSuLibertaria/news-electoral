@@ -9,14 +9,7 @@ type News = {
 }
 
 export const getNews = (obj: any, id: string) => {
-  const {
-    urlToImage,
-    title,
-    url,
-    author,
-    publishedAt,
-    description,
-  } = obj
+  const { urlToImage, title, url, author, publishedAt, description } = obj
 
   const news: News = {
     id,
@@ -24,7 +17,7 @@ export const getNews = (obj: any, id: string) => {
     title,
     link: url,
     author,
-    date: publishedAt,
+    date: new Date(publishedAt),
     description,
   }
   return news

@@ -6,7 +6,7 @@ export const Container = styled.View`
 `
 
 export const DetailPanel = styled.View`
-  background-color: #e74c3c;
+  background-color: #038aff;
   padding: 20px;
   border-radius: 10px;
   width: 100%;
@@ -16,6 +16,7 @@ export const DetailPanel = styled.View`
 export const PanelRow = styled.View`
   margin-bottom: 10px;
   flex-direction: row;
+  flex-wrap: wrap;
 `
 
 export const RowKey = styled.Text`
